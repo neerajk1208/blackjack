@@ -14,3 +14,5 @@ class window.HandView extends Backbone.View
       new CardView(model: card).$el
     @$('.score').text @collection.scores()[0]
 
+    console.log(5)
+

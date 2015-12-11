@@ -5,6 +5,9 @@ class window.Hand extends Backbone.Collection
 
   hit: ->
     @add(@deck.pop())
+    alert "You lose!" if @scores()[0] > 21
+    #if this.scores > 21
+      #alert You lose
     @last()
 
 

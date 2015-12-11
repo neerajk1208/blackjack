@@ -4,10 +4,9 @@ class window.Deck extends Backbone.Collection
   initialize: ->
     @add _([0...52]).shuffle().map (card) ->
       new Card
-        rank: card % 13
+        rank: card % 13 #card value
         suit: Math.floor(card / 13)
 
   dealPlayer: -> new Hand [@pop(), @pop()], @
 
   dealDealer: -> new Hand [@pop().flip(), @pop()], @, true
-
