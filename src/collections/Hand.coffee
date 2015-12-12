@@ -22,7 +22,7 @@ class window.Hand extends Backbone.Collection
     subRoutine()
     if @scores()[0] > 21 then alert "You win!" 
     else 
-      if @scores()[0] <@playerScore then alert "You lose!" 
+      if @scores()[0] >= @playerScore then alert "You lose!" 
       else alert "You win!"
 
     
