@@ -11,6 +11,58 @@ class window.Hand extends Backbone.Collection
     @last()
 
 
+  dealerHit: ->
+    that= @
+    subRoutine = ->
+      
+      return if that.scores()[0] >=17
+      that.add(that.deck.pop())
+      that.last()
+      subRoutine()
+    subRoutine()
+    if @scores()[0] > 21 then alert "You win!" 
+    else 
+      if @scores()[0] <@playerScore then alert "You lose!" 
+      else alert "You win!"
+
+    
+
+  ###
+
+
+  dealerHit: function() {
+  
+    var subRoutine = function() {
+      if (this.scores()[0] >=17) {
+        return
+      } else {
+        this.add(this.deck.pop());
+        this.last()
+        subRoutine()
+      }
+    }
+    subRoutine();
+    if (dealerHand.scores > 21) {
+      alert("You win")
+    } else {
+      if (dealerHand.scores()[0] >= playerHand.scores()[0]) {
+        alert("You lose")
+      } else {
+        alert("you win")
+      }
+    }
+  }
+
+ Hand.prototype.hit = function() {
+      this.add(this.deck.pop());
+      if (this.scores()[0] > 21) {
+        alert("You lose!");
+      }
+      return this.last();
+    };
+  ###
+
+
   hasAce: -> @reduce (memo, card) ->
     memo or card.get('value') is 1
   , 0
