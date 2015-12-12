@@ -5,6 +5,7 @@
   border-radius: 5px;
   height: 140px;
   margin-right: 20px;
+  background-image: url("../img/cards/10-clubs.png");
 }
 
 .covered {
@@ -13,4 +14,10 @@
 
 .hand {
   overflow: auto;
+}
+
+
+body {
+  background-size: cover;
+  background-image: url(http://zebracocktaillounge.com/wp-content/uploads/2015/02/poker-table-background.jpg);
 }
