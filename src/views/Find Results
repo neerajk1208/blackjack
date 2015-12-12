@@ -1,0 +1,524 @@
+Searching 43 files for "div"
+
+/Users/student/Documents/2015-11-blackjack/SpecRunner.html:
+   38    </head>
+   39    <body>
+   40:     <div id="mocha"></div>
+   41    </body>
+   42  </html>
+
+/Users/student/Documents/2015-11-blackjack/compiled/src/views/AppView.js:
+   11      }
+   12  
+   13:     AppView.prototype.template = _.template('<button class="hit-button">Hit</button> <button class="stand-button">Stand</button> <div class="player-hand-container"></div> <div class="dealer-hand-container"></div>');
+   14  
+   15      AppView.prototype.events = {
+
+/Users/student/Documents/2015-11-blackjack/compiled/src/views/CardView.js:
+   15      console.log(CardView.model);
+   16  
+   17:     CardView.prototype.template = _.template('<div style = "background-image:url("img/cards/<%= rankName %>-<%= suitName %>.png")"></div>');
+   18  
+   19      CardView.prototype.initialize = function() {
+
+/Users/student/Documents/2015-11-blackjack/lib/backbone.js:
+  732      },
+  733  
+  734:     // When you have more items than you want to add or remove individually,
+  735      // you can reset the entire set with a new list of models, without firing
+  736      // any granular `add` or `remove` events. Fires `reset` when finished.
+  ...
+  998    _.extend(View.prototype, Events, {
+  999  
+ 1000:     // The default `tagName` of a View's element is `"div"`.
+ 1001:     tagName: 'div',
+ 1002  
+ 1003      // jQuery delegate for element lookup, scoped to DOM elements within the
+ ....
+ 1299  
+ 1300    // Handles cross-browser history management, based on either
+ 1301:   // [pushState](http://diveintohtml5.info/history.html) and real URLs, or
+ 1302    // [onhashchange](https://developer.mozilla.org/en-US/docs/DOM/window.onhashchange)
+ 1303    // and URL fragments. If the browser supports neither (old IE, natch),
+
+/Users/student/Documents/2015-11-blackjack/lib/jquery.js:
+ 1310      input, select, fragment,
+ 1311      opt, eventName, isSupported, i,
+ 1312:     div = document.createElement("div");
+ 1313  
+ 1314    // Setup
+ 1315:   div.setAttribute( "className", "t" );
+ 1316:   div.innerHTML = "  <link/><table></table><a href='/a'>a</a><input type='checkbox'/>";
+ 1317  
+ 1318    // Support tests won't run in some limited or non-browser environments
+ 1319:   all = div.getElementsByTagName("*");
+ 1320:   a = div.getElementsByTagName("a")[ 0 ];
+ 1321    if ( !all || !a || !all.length ) {
+ 1322      return {};
+ ....
+ 1326    select = document.createElement("select");
+ 1327    opt = select.appendChild( document.createElement("option") );
+ 1328:   input = div.getElementsByTagName("input")[ 0 ];
+ 1329  
+ 1330    a.style.cssText = "top:1px;float:left;opacity:.5";
+ 1331    support = {
+ 1332      // Test setAttribute on camelCase class. If it works, we need attrFixes when doing get/setAttribute (ie6/7)
+ 1333:     getSetAttribute: div.className !== "t",
+ 1334  
+ 1335      // IE strips leading whitespace when .innerHTML is used
+ 1336:     leadingWhitespace: div.firstChild.nodeType === 3,
+ 1337  
+ 1338      // Make sure that tbody elements aren't automatically inserted
+ 1339      // IE will insert them into empty tables
+ 1340:     tbody: !div.getElementsByTagName("tbody").length,
+ 1341  
+ 1342      // Make sure that link elements get serialized correctly by innerHTML
+ 1343      // This requires a wrapper element in IE
+ 1344:     htmlSerialize: !!div.getElementsByTagName("link").length,
+ 1345  
+ 1346      // Get the style information from getAttribute
+ ....
+ 1399    // Support: IE<9
+ 1400    try {
+ 1401:     delete div.test;
+ 1402    } catch( e ) {
+ 1403      support.deleteExpando = false;
+ ....
+ 1429  
+ 1430    // Support: IE<9
+ 1431:   // Opera does not clone events (and typeof div.attachEvent === undefined).
+ 1432    // IE9-10 clones events bound via attachEvent, but they don't trigger with .click()
+ 1433:   if ( div.attachEvent ) {
+ 1434:     div.attachEvent( "onclick", function() {
+ 1435        support.noCloneEvent = false;
+ 1436      });
+ 1437  
+ 1438:     div.cloneNode( true ).click();
+ 1439    }
+ 1440  
+ ....
+ 1442    // Beware of CSP restrictions (https://developer.mozilla.org/en/Security/CSP), test/csp.php
+ 1443    for ( i in { submit: true, change: true, focusin: true }) {
+ 1444:     div.setAttribute( eventName = "on" + i, "t" );
+ 1445  
+ 1446:     support[ i + "Bubbles" ] = eventName in window || div.attributes[ eventName ].expando === false;
+ 1447    }
+ 1448  
+ 1449:   div.style.backgroundClip = "content-box";
+ 1450:   div.cloneNode( true ).style.backgroundClip = "";
+ 1451:   support.clearCloneStyle = div.style.backgroundClip === "content-box";
+ 1452  
+ 1453    // Run tests that need a body at doc ready
+ 1454    jQuery(function() {
+ 1455:     var container, marginDiv, tds,
+ 1456:       divReset = "padding:0;margin:0;border:0;display:block;box-sizing:content-box;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;",
+ 1457        body = document.getElementsByTagName("body")[0];
+ 1458  
+ ....
+ 1462      }
+ 1463  
+ 1464:     container = document.createElement("div");
+ 1465      container.style.cssText = "border:0;width:0;height:0;position:absolute;top:0;left:-9999px;margin-top:1px";
+ 1466  
+ 1467:     body.appendChild( container ).appendChild( div );
+ 1468  
+ 1469      // Support: IE8
+ ....
+ 1474      // display:none (it is still safe to use offsets if a parent element is
+ 1475      // hidden; don safety goggles and see bug #4512 for more information).
+ 1476:     div.innerHTML = "<table><tr><td></td><td>t</td></tr></table>";
+ 1477:     tds = div.getElementsByTagName("td");
+ 1478      tds[ 0 ].style.cssText = "padding:0;margin:0;border:0;display:none";
+ 1479      isSupported = ( tds[ 0 ].offsetHeight === 0 );
+ ....
+ 1487  
+ 1488      // Check box-sizing and margin behavior
+ 1489:     div.innerHTML = "";
+ 1490:     div.style.cssText = "box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;padding:1px;border:1px;display:block;width:4px;margin-top:1%;position:absolute;top:1%;";
+ 1491:     support.boxSizing = ( div.offsetWidth === 4 );
+ 1492      support.doesNotIncludeMarginInBodyOffset = ( body.offsetTop !== 1 );
+ 1493  
+ 1494      // Use window.getComputedStyle because jsdom on node.js will break without it.
+ 1495      if ( window.getComputedStyle ) {
+ 1496:       support.pixelPosition = ( window.getComputedStyle( div, null ) || {} ).top !== "1%";
+ 1497:       support.boxSizingReliable = ( window.getComputedStyle( div, null ) || { width: "4px" } ).width === "4px";
+ 1498  
+ 1499:       // Check if div with explicit width and no margin-right incorrectly
+ 1500        // gets computed margin-right based on width of container. (#3333)
+ 1501        // Fails in WebKit before Feb 2011 nightlies
+ 1502        // WebKit Bug 13343 - getComputedStyle returns wrong value for margin-right
+ 1503:       marginDiv = div.appendChild( document.createElement("div") );
+ 1504:       marginDiv.style.cssText = div.style.cssText = divReset;
+ 1505:       marginDiv.style.marginRight = marginDiv.style.width = "0";
+ 1506:       div.style.width = "1px";
+ 1507  
+ 1508        support.reliableMarginRight =
+ 1509:         !parseFloat( ( window.getComputedStyle( marginDiv, null ) || {} ).marginRight );
+ 1510      }
+ 1511  
+ 1512:     if ( typeof div.style.zoom !== core_strundefined ) {
+ 1513        // Support: IE<8
+ 1514        // Check if natively block-level elements act like inline-block
+ 1515        // elements when setting their display to 'inline' and giving
+ 1516        // them layout
+ 1517:       div.innerHTML = "";
+ 1518:       div.style.cssText = divReset + "width:1px;padding:1px;display:inline;zoom:1";
+ 1519:       support.inlineBlockNeedsLayout = ( div.offsetWidth === 3 );
+ 1520  
+ 1521        // Support: IE6
+ 1522        // Check if elements with layout shrink-wrap their children
+ 1523:       div.style.display = "block";
+ 1524:       div.innerHTML = "<div></div>";
+ 1525:       div.firstChild.style.width = "5px";
+ 1526:       support.shrinkWrapBlocks = ( div.offsetWidth !== 3 );
+ 1527  
+ 1528        if ( support.inlineBlockNeedsLayout ) {
+ ....
+ 1537  
+ 1538      // Null elements to avoid leaks in IE
+ 1539:     container = div = tds = marginDiv = null;
+ 1540    });
+ 1541  
+ ....
+ 2158      return this.each(function() {
+ 2159        if ( type === "string" ) {
+ 2160:         // toggle individual class names
+ 2161          var className,
+ 2162            i = 0,
+ ....
+ 3874  /**
+ 3875   * Support testing using an element
+ 3876:  * @param {Function} fn Passed the created div and expects a boolean result
+ 3877   */
+ 3878  function assert( fn ) {
+ 3879:   var div = document.createElement("div");
+ 3880  
+ 3881    try {
+ 3882:     return fn( div );
+ 3883    } catch (e) {
+ 3884      return false;
+ 3885    } finally {
+ 3886      // release memory in IE
+ 3887:     div = null;
+ 3888    }
+ 3889  }
+ ....
+ 4031  
+ 4032    // Check if getElementsByTagName("*") returns only elements
+ 4033:   support.tagNameNoComments = assert(function( div ) {
+ 4034:     div.appendChild( doc.createComment("") );
+ 4035:     return !div.getElementsByTagName("*").length;
+ 4036    });
+ 4037  
+ 4038    // Check if attributes should be retrieved by attribute nodes
+ 4039:   support.attributes = assert(function( div ) {
+ 4040:     div.innerHTML = "<select></select>";
+ 4041:     var type = typeof div.lastChild.getAttribute("multiple");
+ 4042      // IE8 returns a string for some attributes even when not present
+ 4043      return type !== "boolean" && type !== "string";
+ ....
+ 4045  
+ 4046    // Check if getElementsByClassName can be trusted
+ 4047:   support.getByClassName = assert(function( div ) {
+ 4048      // Opera can't find a second classname (in 9.6)
+ 4049:     div.innerHTML = "<div class='hidden e'></div><div class='hidden'></div>";
+ 4050:     if ( !div.getElementsByClassName || !div.getElementsByClassName("e").length ) {
+ 4051        return false;
+ 4052      }
+ 4053  
+ 4054      // Safari 3.2 caches class attributes and doesn't catch changes
+ 4055:     div.lastChild.className = "e";
+ 4056:     return div.getElementsByClassName("e").length === 2;
+ 4057    });
+ 4058  
+ 4059    // Check if getElementById returns elements by name
+ 4060    // Check if getElementsByName privileges form controls or returns elements by ID
+ 4061:   support.getByName = assert(function( div ) {
+ 4062      // Inject content
+ 4063:     div.id = expando + 0;
+ 4064:     div.innerHTML = "<a name='" + expando + "'></a><div name='" + expando + "'></div>";
+ 4065:     docElem.insertBefore( div, docElem.firstChild );
+ 4066  
+ 4067      // Test
+ ....
+ 4074  
+ 4075      // Cleanup
+ 4076:     docElem.removeChild( div );
+ 4077  
+ 4078      return pass;
+ ....
+ 4080  
+ 4081    // IE6/7 return modified attributes
+ 4082:   Expr.attrHandle = assert(function( div ) {
+ 4083:     div.innerHTML = "<a href='#'></a>";
+ 4084:     return div.firstChild && typeof div.firstChild.getAttribute !== strundefined &&
+ 4085:       div.firstChild.getAttribute("href") === "#";
+ 4086    }) ?
+ 4087      {} :
+ ....
+ 4185      // Build QSA regex
+ 4186      // Regex strategy adopted from Diego Perini
+ 4187:     assert(function( div ) {
+ 4188        // Select is set to empty string on purpose
+ 4189        // This is to test IE's treatment of not explictly
+ ....
+ 4191        // since its presence should be enough
+ 4192        // http://bugs.jquery.com/ticket/12359
+ 4193:       div.innerHTML = "<select><option selected=''></option></select>";
+ 4194  
+ 4195        // IE8 - Some boolean attributes are not treated correctly
+ 4196:       if ( !div.querySelectorAll("[selected]").length ) {
+ 4197          rbuggyQSA.push( "\\[" + whitespace + "*(?:checked|disabled|ismap|multiple|readonly|selected|value)" );
+ 4198        }
+ ....
+ 4201        // http://www.w3.org/TR/2011/REC-css3-selectors-20110929/#checked
+ 4202        // IE8 throws error here and will not see later tests
+ 4203:       if ( !div.querySelectorAll(":checked").length ) {
+ 4204          rbuggyQSA.push(":checked");
+ 4205        }
+ 4206      });
+ 4207  
+ 4208:     assert(function( div ) {
+ 4209  
+ 4210        // Opera 10-12/IE8 - ^= $= *= and empty values
+ 4211        // Should not select anything
+ 4212:       div.innerHTML = "<input type='hidden' i=''/>";
+ 4213:       if ( div.querySelectorAll("[i^='']").length ) {
+ 4214          rbuggyQSA.push( "[*^$]=" + whitespace + "*(?:\"\"|'')" );
+ 4215        }
+ ....
+ 4217        // FF 3.5 - :enabled/:disabled and hidden elements (hidden elements are still enabled)
+ 4218        // IE8 throws error here and will not see later tests
+ 4219:       if ( !div.querySelectorAll(":enabled").length ) {
+ 4220          rbuggyQSA.push( ":enabled", ":disabled" );
+ 4221        }
+ 4222  
+ 4223        // Opera 10-11 does not throw on post-comma invalid pseudos
+ 4224:       div.querySelectorAll("*,:x");
+ 4225        rbuggyQSA.push(",.*:");
+ 4226      });
+ ....
+ 4233      docElem.msMatchesSelector) )) ) {
+ 4234  
+ 4235:     assert(function( div ) {
+ 4236        // Check to see if it's possible to do matchesSelector
+ 4237        // on a disconnected node (IE 9)
+ 4238:       support.disconnectedMatch = matches.call( div, "div" );
+ 4239  
+ 4240        // This should fail with an exception
+ 4241        // Gecko does not error, returns false instead
+ 4242:       matches.call( div, "[s!='']:x" );
+ 4243        rbuggyMatches.push( "!=", pseudos );
+ 4244      });
+ ....
+ 5862  
+ 5863      // IE6-8 can't serialize link, script, style, or any html5 (NoScope) tags,
+ 5864:     // unless wrapped in a div with non-breaking characters in front of it.
+ 5865:     _default: jQuery.support.htmlSerialize ? [ 0, "", "" ] : [ 1, "X<div>", "</div>"  ]
+ 5866    },
+ 5867    safeFragment = createSafeFragment( document ),
+ 5868:   fragmentDiv = safeFragment.appendChild( document.createElement("div") );
+ 5869  
+ 5870  wrapMap.optgroup = wrapMap.option;
+ ....
+ 6389      // IE<=8 does not properly clone detached, unknown element nodes
+ 6390      } else {
+ 6391:       fragmentDiv.innerHTML = elem.outerHTML;
+ 6392:       fragmentDiv.removeChild( clone = fragmentDiv.firstChild );
+ 6393      }
+ 6394  
+ ....
+ 6461          // Convert html into DOM nodes
+ 6462          } else {
+ 6463:           tmp = tmp || safe.appendChild( context.createElement("div") );
+ 6464  
+ 6465            // Deserialize a standard representation
+ ....
+ 7581        self.html( selector ?
+ 7582  
+ 7583:         // If a selector was specified, locate the right elements in a dummy div
+ 7584          // Exclude scripts to avoid IE 'Permission Denied' errors
+ 7585:         jQuery("<div>").append( jQuery.parseHTML( responseText ) ).find( selector ) :
+ 7586  
+ 7587          // Otherwise use the full result
+
+/Users/student/Documents/2015-11-blackjack/lib/mocha/mocha.js:
+ 2288    }
+ 2289  
+ 2290:   if (!root) return error('#mocha div missing, add it to your document');
+ 2291  
+ 2292    // pass toggle
+ ....
+ 2396  
+ 2397  function error(msg) {
+ 2398:   document.body.appendChild(fragment('<div id="mocha-error">%s</div>', msg));
+ 2399  }
+ 2400  
+ ....
+ 2405  function fragment(html) {
+ 2406    var args = arguments
+ 2407:     , div = document.createElement('div')
+ 2408      , i = 1;
+ 2409  
+ 2410:   div.innerHTML = html.replace(/%([se])/g, function(_, type){
+ 2411      switch (type) {
+ 2412        case 's': return String(args[i++]);
+ ....
+ 2415    });
+ 2416  
+ 2417:   return div.firstChild;
+ 2418  }
+ 2419  
+
+/Users/student/Documents/2015-11-blackjack/src/views/AppView.coffee:
+    2    template: _.template '
+    3      <button class="hit-button">Hit</button> <button class="stand-button">Stand</button>
+    4:     <div class="player-hand-container"></div>
+    5:     <div class="dealer-hand-container"></div>
+    6    '
+    7  
+
+/Users/student/Documents/2015-11-blackjack/src/views/CardView.coffee:
+    3    #id = "img/cards/" + @model.get('rankName') + "-" +  @model.get('suitName') + ".png"
+    4    console.log @model  
+    5:   template: _.template '<distyle = "background-image:url("img/cards/<%= rankName %>-<%= suitName %>.png")"></div>'
+    6  
+    7    initialize: -> @render()
+
+138 matches across 8 files
+
+
+Searching 43 files for "alert"
+
+/Users/student/Documents/2015-11-blackjack/compiled/spec/BlackjackViewSpec.js:
+   29          return assert.strictEqual(collection.length, 52);
+   30        });
+   31:       it("if neither player nor dealer bust, should compare scores and alert appropriate result", function() {
+   32          var collection;
+   33          collection = new Deck();
+   34          return assert.strictEqual(collection.length, 52);
+   35        });
+   36:       it("should alert win when dealer scores lower", function() {
+   37          var collection;
+   38          collection = new Deck();
+   39          return assert.strictEqual(collection.length, 52);
+   40        });
+   41:       it("should alert loss when dealer scores higher", function() {
+   42          var collection;
+   43          collection = new Deck();
+   44          return assert.strictEqual(collection.length, 52);
+   45        });
+   46:       return it("should alert loss when scores are equal", function() {
+   47          var collection;
+   48          collection = new Deck();
+
+/Users/student/Documents/2015-11-blackjack/compiled/src/collections/Hand.js:
+   21        this.add(this.deck.pop());
+   22        if (this.scores()[0] > 21) {
+   23:         alert("You lose!");
+   24        }
+   25        return this.last();
+   ..
+   39        subRoutine();
+   40        if (this.scores()[0] > 21) {
+   41:         return alert("You win!");
+   42        } else {
+   43          if (this.scores()[0] >= this.playerScore) {
+   44:           return alert("You lose!");
+   45          } else {
+   46:           return alert("You win!");
+   47          }
+   48        }
+   ..
+   66        subRoutine();
+   67        if (dealerHand.scores > 21) {
+   68:         alert("You win")
+   69        } else {
+   70          if (dealerHand.scores()[0] >= playerHand.scores()[0]) {
+   71:           alert("You lose")
+   72          } else {
+   73:           alert("you win")
+   74          }
+   75        }
+   ..
+   79          this.add(this.deck.pop());
+   80          if (this.scores()[0] > 21) {
+   81:           alert("You lose!");
+   82          }
+   83          return this.last();
+
+/Users/student/Documents/2015-11-blackjack/lib/backbone.js:
+   73    //     var object = {};
+   74    //     _.extend(object, Backbone.Events);
+   75:   //     object.on('expand', function(){ alert('expanded'); });
+   76    //     object.trigger('expand');
+   77    //
+
+/Users/student/Documents/2015-11-blackjack/lib/jquery.js:
+  440  
+  441    // See test/unit/core.js for details concerning isFunction.
+  442:   // Since version 1.3, DOM methods and functions like alert
+  443    // aren't supported. They return false on IE (#2968).
+  444    isFunction: function( obj ) {
+  ...
+ 3278        postDispatch: function( event ) {
+ 3279  
+ 3280:         // Even when returnValue equals to undefined Firefox will still show alert
+ 3281          if ( event.result !== undefined ) {
+ 3282            event.originalEvent.returnValue = event.result;
+
+/Users/student/Documents/2015-11-blackjack/spec/BlackjackViewSpec.coffee:
+   23        assert.strictEqual collection.length, 52
+   24  
+   25:     it "if neither player nor dealer bust, should compare scores and alert appropriate result", ->
+   26        collection = new Deck()
+   27        assert.strictEqual collection.length, 52
+   28  
+   29:     it "should alert win when dealer scores lower", ->
+   30        collection = new Deck()
+   31        assert.strictEqual collection.length, 52
+   32  
+   33:     it "should alert loss when dealer scores higher", ->
+   34        collection = new Deck()
+   35        assert.strictEqual collection.length, 52
+   36  
+   37:     it "should alert loss when scores are equal", ->
+   38        collection = new Deck()
+   39        assert.strictEqual collection.length, 52
+
+/Users/student/Documents/2015-11-blackjack/src/collections/Hand.coffee:
+    6    hit: ->
+    7      @add(@deck.pop())
+    8:     alert "You lose!" if @scores()[0] > 21
+    9      #if this.scores > 21
+   10:       #alert You lose
+   11      @last()
+   12  
+   ..
+   21        subRoutine()
+   22      subRoutine()
+   23:     if @scores()[0] > 21 then alert "You win!" 
+   24      else 
+   25:       if @scores()[0] >= @playerScore then alert "You lose!" 
+   26:       else alert "You win!"
+   27  
+   28      
+   ..
+   44      subRoutine();
+   45      if (dealerHand.scores > 21) {
+   46:       alert("You win")
+   47      } else {
+   48        if (dealerHand.scores()[0] >= playerHand.scores()[0]) {
+   49:         alert("You lose")
+   50        } else {
+   51:         alert("you win")
+   52        }
+   53      }
+   ..
+   57        this.add(this.deck.pop());
+   58        if (this.scores()[0] > 21) {
+   59:         alert("You lose!");
+   60        }
+   61        return this.last();
+
+28 matches across 6 files

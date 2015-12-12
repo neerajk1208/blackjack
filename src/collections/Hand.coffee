@@ -5,25 +5,26 @@ class window.Hand extends Backbone.Collection
 
   hit: ->
     @add(@deck.pop())
-    alert "You lose!" if @scores()[0] > 21
+    console.log "You lose!" if @scores()[0] > 21
     #if this.scores > 21
       #alert You lose
-    @last()
+    # @last()
 
-
+#console.logging out the win/loss because when we alert it breaks the control flow and the last card image does not render
+#until after the alert is closed
   dealerHit: ->
     that= @
     subRoutine = ->
       
       return if that.scores()[0] >=17
       that.add(that.deck.pop())
-      that.last()
+      # that.last()
       subRoutine()
     subRoutine()
-    if @scores()[0] > 21 then alert "You win!" 
+    if @scores()[0] > 21 then console.log "You win!" 
     else 
-      if @scores()[0] >= @playerScore then alert "You lose!" 
-      else alert "You win!"
+      if @scores()[0] >= @playerScore then console.log "You lose!" 
+      else console.log "You win!"
 
     
 
