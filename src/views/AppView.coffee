@@ -16,7 +16,6 @@ class window.AppView extends Backbone.View
       #if deck length is less than four
       #create a new deck
       @model.set 'deck', deck= new Deck() if @model.get('deck').length < 4
-      
       @model.set 'playerHand', @model.get('deck').dealPlayer()
       @model.set 'dealerHand', @model.get('deck').dealDealer()
       @render()

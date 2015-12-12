@@ -5,7 +5,7 @@ class window.Hand extends Backbone.Collection
 
   hit: ->
     @add(@deck.pop())
-    console.log "You lose!" if @scores()[0] > 21
+    setTimeout(-> alert "You lose!", 1000)  if @scores()[0] > 21
     #if this.scores > 21
       #alert You lose
     # @last()
@@ -21,10 +21,10 @@ class window.Hand extends Backbone.Collection
       # that.last()
       subRoutine()
     subRoutine()
-    if @scores()[0] > 21 then console.log "You win!" 
+    if @scores()[0] > 21 then setTimeout(->alert "You win!", 0) 
     else 
-      if @scores()[0] >= @playerScore then console.log "You lose!" 
-      else console.log "You win!"
+      if @scores()[0] >= @playerScore then setTimeout(-> alert "You lose!", 0)  
+      else setTimeout(-> alert "You win!", 0) 
 
     
 
