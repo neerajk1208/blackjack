@@ -21,10 +21,10 @@ class window.Hand extends Backbone.Collection
       # that.last()
       subRoutine()
     subRoutine()
-    if @scores()[0] > 21 then setTimeout(->alert "You win!", 0) 
+    if @scores()[0] > 21 then setTimeout(->alert "You win!", 1000) 
     else 
-      if @scores()[0] >= @playerScore then setTimeout(-> alert "You lose!", 0)  
-      else setTimeout(-> alert "You win!", 0) 
+      if @scores()[0] >= @playerScore then setTimeout(-> alert "You lose!", 1000)  
+      else setTimeout(-> alert "You win!", 1000) 
 
     
 
@@ -76,6 +76,24 @@ class window.Hand extends Backbone.Collection
     # The scores are an array of potential scores.
     # Usually, that array contains one element. That is the only score.
     # when there is an ace, it offers you two scores - the original score, and score + 10.
-    [@minScore(), @minScore() + 10 * @hasAce()]
+    #console.log @hasAce()
+    if @hasAce() == true 
+      if @minScore() + 10 > 21 then [@minScore()] else [@minScore(), @minScore() + 10 * @hasAce()]
+    else [@minScore()] 
+      #then [@minScore(), @minScore() + 10 * @hasAce()] else [@minScore()] 
+    ###
+    if (hasAce() === true) {
+      if (this.scores[1] > 21) {
+          return this.scores[0]
+      } else {
+          return this.scores[0], this.scores[1]
+      }
+    } else {
+      return this.scores[0]
+    }
+
+
+
+    ###
 
 
